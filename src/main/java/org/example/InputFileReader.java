@@ -31,28 +31,19 @@ public class InputFileReader {
                 }
 
                 DownloadFileInfo downloadFileInfo = new DownloadFileInfo();
-
                 for (Cell cell : row) {
                     switch (cell.getColumnIndex()) {
-                        case 0: // downloadStart
-                            if (cell.getCellType() == CellType.NUMERIC) {
-                                downloadFileInfo.setDownloadStart((int) cell.getNumericCellValue());
-                            }
-                            break;
-                        case 1: // downloadEnd
-                            if (cell.getCellType() == CellType.NUMERIC) {
-                                downloadFileInfo.setDownloadEnd((int) cell.getNumericCellValue());
-                            }
-                            break;
-                        case 2:
+                        case 0:
                             // fileName
                             if (cell.getCellType() == CellType.STRING) {
                                 downloadFileInfo.setFileName(cleanFileName(cell.getStringCellValue()));
                             }
                             break;
-                        case 3: // segment
+                        case 1:
                             if (cell.getCellType() == CellType.STRING) {
-                                downloadFileInfo.setUrl(cell.getStringCellValue());
+                                String url = cell.getStringCellValue();
+                                downloadFileInfo.setUrl(replaceWithPlaceHolder(url));
+                                downloadFileInfo.setDownloadEnd(getLastFileNumber(url));
                             }
                             break;
                         default:
@@ -62,13 +53,30 @@ public class InputFileReader {
                 downloadFileInfos.add(downloadFileInfo);
             }
 
-        } catch (IOException e) {
+        } catch (
+                IOException e) {
             System.err.println(e.getMessage());
         }
         return downloadFileInfos;
     }
 
-    public static String cleanFileName(String filename) {
+    private static Integer getLastFileNumber(String url) {
+        int dataIndex = url.indexOf("data") + 4;
+        StringBuilder fileNumber = new StringBuilder();
+        for (int i = dataIndex; i < 7; i++) fileNumber.append(url.charAt(i));
+        return Integer.parseInt(fileNumber.toString());
+    }
+
+    private static String replaceWithPlaceHolder(String url) {
+        int dataIndex = url.indexOf("data");
+        int tsIndex = url.indexOf(".ts", dataIndex);
+        // Construct the modified URL string
+        return url.substring(0, dataIndex + "data".length()) +
+                "%s" +  // Replace with your 6-character string here
+                url.substring(tsIndex);
+    }
+
+    private static String cleanFileName(String filename) {
         // Define a regular expression for characters not allowed in Windows file names
         String illegalChars = "[<>:\"/|?*]";
 

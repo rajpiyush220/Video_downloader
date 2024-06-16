@@ -2,7 +2,7 @@ package org.example.bean;
 
 
 public class DownloadFileInfo {
-    Integer downloadStart;
+    Integer downloadStart = 0;
     Integer downloadEnd;
     String fileName;
     String url;
