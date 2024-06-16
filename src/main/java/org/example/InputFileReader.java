@@ -63,8 +63,8 @@ public class InputFileReader {
     private static Integer getLastFileNumber(String url) {
         int dataIndex = url.indexOf("data") + 4;
         StringBuilder fileNumber = new StringBuilder();
-        for (int i = dataIndex; i < 7; i++) fileNumber.append(url.charAt(i));
-        return Integer.parseInt(fileNumber.toString());
+        for (int i = dataIndex; i < dataIndex + 6; i++) fileNumber.append(url.charAt(i));
+        return Integer.parseInt(fileNumber.toString().replaceAll("\\D", ""));
     }
 
     private static String replaceWithPlaceHolder(String url) {

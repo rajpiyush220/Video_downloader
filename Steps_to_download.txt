@@ -1,0 +1,19 @@
+
+
+
+
+Steps to download video from scaler recording library
+
+Step 1: Open any lecture and drag to the end of the lecture.
+Step 2: open network tab and you can see many url call like below and select the last one
+	https://media.scaler.com/production/protected-recordings/486326/495737/__segment:1010101001101001101010100110010101101010011012/stream_0/data000528.ts?Key-Pair-Id=K4IMAQNEJMDV1&Policy=ewogICAgICAgICJTdGF0ZW1lbnQiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJSZXNvdXJjZSI6ICJodHRwczovL21lZGlhLnNjYWxlci5jb20vcHJvZHVjdGlvbi9wcm90ZWN0ZWQtcmVjb3JkaW5ncy80ODYzMjYvNDk1NzM3L19fc2VnbWVudDoxMDEwMTAxMDAxMTAxMDAxMTAxMDEwMTAwMTEwMDEwMTAxMTAxMDEwMDExMDEyLyoiLAogICAgICAgICAgICAiQ29uZGl0aW9uIjogewogICAgICAgICAgICAgICAiSXBBZGRyZXNzIjogewogICAgICAgICAgICAgICAgICAiQVdTOlNvdXJjZUlwIjogIjAuMC4wLjAvMCIKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAiRGF0ZUxlc3NUaGFuIjogewogICAgICAgICAgICAgICAgICAiQVdTOkVwb2NoVGltZSI6IDE3MTg0ODI2OTEKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJEYXRlR3JlYXRlclRoYW4iOiB7CiAgICAgICAgICAgICAgICAgICJBV1M6RXBvY2hUaW1lIjogMTcxODQ2ODI5MQogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICB9CiAgICAgICAgXQogICAgICB9CiAgICA_&Signature=dYHd9yp1Irs3e3Hy-~tctw-x8klo8l3COulMvgoYKc7XhgeGDOkv8R-yxel2McS7HHlrPJJwqz38S09Qc3AOadIvZb4FpKAy6B74vPCrJzo8VznV8J5pFtyXV8j987gO~3XP4mRhHpp1XhRLD~ndGQ7gozcDSVOragWtivy9~y9jDwL0FEKsWV5fkdtc-O95Rc-zqZvRALy5GL6YBv~i~HVWVPxpDA5GvavtQ3NLXSGV3MJAVeayBz844sN9xxNYaHuID-WjARPQdC~XtA~xXG~6HLnhYOM1g1yiCSYbljlgjAdT92OdeZFL9nX2bAFrTDWFCW3VPsTPKCRl42372w__
+Step 3: Open input_file/input_file.xlsx and delete any exisiting row after header
+Step 4: Add file name in filename column and copied url in next column
+Step 5: Save it close the excel and run the program.
+Strp 6: On successfull execution of program you can see video in video/dest folder in peoject directory
+
+
+Limitation:
+	Copied url will only work for a limited time due to key expiry, so copy and it and download it in next 15 20 minutes
+
+
